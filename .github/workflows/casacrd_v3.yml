@@ -660,7 +660,7 @@ jobs:
           Start-Process "C:\Program Files\Bitvise SSH Client\BvSsh.exe" -ArgumentList "-host=192.168.56.1 -user=root -password=1 -openSftp=y -loginOnStartup"
 
       - name: 📁 Pindahkan folder rclone ke AppData Roaming
-        if: ${{ inputs.mode_restore == 'full' }}
+        if: ${{ inputs.mode_restore == 'minimum' }}
         run: |
           Write-Host "=== Memindahkan folder rclone ke AppData Roaming ==="
           
