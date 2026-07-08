@@ -233,7 +233,7 @@ jobs:
           $downloadFolder = "$env:USERPROFILE\Downloads"
           $url1 = "https://github.com/Thorns2007/super-duper-computing-machine/releases/download/cs/setup-stream.zip.001"
           $url2 = "https://github.com/Thorns2007/super-duper-computing-machine/releases/download/cs/setup-stream.zip.002"
-
+          $url3 = "https://github.com/Thorns2007/super-duper-computing-machine/releases/download/cs/setup-stream.zip.003"
           if (!(Test-Path $downloadFolder)) {
           New-Item -ItemType Directory -Path $downloadFolder | Out-Null
           }
@@ -267,8 +267,14 @@ jobs:
           Invoke-WebRequest -Uri $u -OutFile $o -UseBasicParsing 
           } -ArgumentList $url2,"$downloadFolder\CasaOS.zip.002"
 
-          Wait-Job $job1,$job2
-          Receive-Job $job1,$job2
+          $job3 = Start-Job { 
+          param($u,$o) 
+          Invoke-WebRequest -Uri $u -OutFile $o -UseBasicParsing 
+          } -ArgumentList $url3,"$downloadFolder\CasaOS.zip.003"
+          
+
+          Wait-Job $job1,$job2,$job3
+          Receive-Job $job1,$job2,$job3
 
           Write-Host "✅ Semua part berhasil didownload"
 
