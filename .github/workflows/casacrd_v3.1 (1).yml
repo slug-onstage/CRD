@@ -1,4 +1,4 @@
-name: RDP WinTDW
+name: RDP Windows TDW
 
 on:
   workflow_dispatch:
