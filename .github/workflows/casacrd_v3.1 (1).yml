@@ -1,4 +1,4 @@
-name: RDP CS Windows Via CRD
+name: RDP WinTDW
 
 on:
   workflow_dispatch:
